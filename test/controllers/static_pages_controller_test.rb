@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @suffix = "RoR"
+  end
+
   test "should get home" do
     get static_pages_home_url
     assert_response :success
@@ -18,16 +23,16 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should have home title" do
     get static_pages_home_url
-    assert_select "title", "Home | RoR"
+    assert_select "title", "Home | #{@suffix}"
   end
 
   test "should have help title" do
     get static_pages_help_url
-    assert_select "title", "Help | RoR"
+    assert_select "title", "Help | #{@suffix}"
   end
 
   test "should have about title" do
     get static_pages_about_url
-    assert_select "title", "About | RoR"
+    assert_select "title", "About | #{@suffix}"
   end
 end
