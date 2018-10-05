@@ -6,8 +6,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     @suffix = "RoR"
   end
 
-  test "should get home" do
-    get static_pages_home_url
+  test "should get root" do
+    get root_url
     assert_response :success
   end
 
@@ -21,9 +21,9 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should have home title" do
-    get static_pages_home_url
-    assert_select "title", "Home | #{@suffix}"
+  test "should get contact" do
+    get static_pages_contact_url
+    assert_response :success
   end
 
   test "should have help title" do
@@ -34,5 +34,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should have about title" do
     get static_pages_about_url
     assert_select "title", "About | #{@suffix}"
+  end
+
+  test "should have contcat title" do
+    get static_pages_contact_url
+    assert_select "title", "Contact | #{@suffix}"
   end
 end
