@@ -12,32 +12,32 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get help" do
-    get static_pages_help_url
+    get help_path
     assert_response :success
   end
 
   test "should get about" do
-    get static_pages_about_url
+    get about_path
     assert_response :success
   end
 
   test "should get contact" do
-    get static_pages_contact_url
+    get contact_path
     assert_response :success
   end
 
   test "should have help title" do
-    get static_pages_help_url
+    get help_path
     assert_select "title", "Help | #{@suffix}"
   end
 
   test "should have about title" do
-    get static_pages_about_url
+    get about_path
     assert_select "title", "About | #{@suffix}"
   end
 
-  test "should have contcat title" do
-    get static_pages_contact_url
+  test "should have contact title" do
+    get contact_path
     assert_select "title", "Contact | #{@suffix}"
   end
 end
